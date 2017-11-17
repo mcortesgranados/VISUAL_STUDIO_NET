@@ -21,5 +21,18 @@ namespace PCO_VSNET_CSHARP_001
         {
 
         }
+
+        protected void BulletedList1_Click(object sender, BulletedListEventArgs e)
+        {
+
+
+
+
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
