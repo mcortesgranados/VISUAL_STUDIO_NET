@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v1.1": {
-      "pco_vsnet_csharp_002/1.0.0": {
+      "PCO_VSNET_CSHARP_002/1.0.0": {
         "runtime": {
           "PCO_VSNET_CSHARP_002.dll": {}
         }
@@ -14,7 +14,7 @@
     }
   },
   "libraries": {
-    "pco_vsnet_csharp_002/1.0.0": {
+    "PCO_VSNET_CSHARP_002/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

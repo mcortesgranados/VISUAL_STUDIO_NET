@@ -1,0 +1,866 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://Noova/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://Noova/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://Noova/">
+      <s:element name="SetFacFacturas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dtoFacFacturasInput" type="tns:DTOFacFacturas" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DTOFacFacturas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="lDetalle" type="tns:ArrayOfDTOFacDetallefacturas" />
+          <s:element minOccurs="0" maxOccurs="1" name="lImpuestos" type="tns:ArrayOfDTOFacImpuestosfacturas" />
+          <s:element minOccurs="0" maxOccurs="1" name="lAdicionales" type="tns:ArrayOfDTOFacAdicionalesfacturas" />
+          <s:element minOccurs="0" maxOccurs="1" name="lNotas" type="tns:ArrayOfDTOFacNotasfacturas" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mandatario" type="tns:DTOFacMandatario" />
+          <s:element minOccurs="0" maxOccurs="1" name="lCodigoBarras" type="tns:ArrayOfDTOFacBarcode" />
+          <s:element minOccurs="0" maxOccurs="1" name="TerminosEntrega" type="tns:DTOFacTerminosEntrega" />
+          <s:element minOccurs="0" maxOccurs="1" name="MediosPago" type="tns:DTOFacMediosPago" />
+          <s:element minOccurs="0" maxOccurs="1" name="Entrega" type="tns:DTOFacEntrega" />
+          <s:element minOccurs="0" maxOccurs="1" name="lResmuenFactura" type="tns:ArrayOfDTOFacResumenFacturas" />
+          <s:element minOccurs="0" maxOccurs="1" name="TasaCambio" type="tns:DTOTasaCambio" />
+          <s:element minOccurs="0" maxOccurs="1" name="lAranceles" type="tns:ArrayOfDTOArancel" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvfac_orig" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvemp_nnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvfac_tipo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_fech" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_venc" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvcli_cper" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvcli_cdoc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvcli_docu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvcli_mail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvcli_depa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvcli_ciud" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvcli_loca" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvcli_pais" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvcli_dire" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvcli_ntel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvcli_ncon" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvcli_regi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvcli_nomb" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvcli_pnom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvcli_snom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvcli_apel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvfac_nume" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvres_nume" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_stot" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_desc" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_carg" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_timp" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_anti" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_tota" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_totp" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvfac_obse" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvven_nomb" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvsuc_codi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvfac_fpag" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvmon_codi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvfor_codi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvcon_codi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvcon_desc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvfac_tcru" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvfac_numb" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_fecb" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvfac_coid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvfac_obsb" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvfac_orde" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvfac_remi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvfac_rece" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvfac_entr" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_vcop" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvema_copi" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDTOFacDetallefacturas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DTOFacDetallefacturas" nillable="true" type="tns:DTOFacDetallefacturas" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DTOFacDetallefacturas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="lAdicionalDetalle" type="tns:ArrayOfDTOFacAdicionalesdetallefacturas" />
+          <s:element minOccurs="0" maxOccurs="1" name="lImpuestosDetalle" type="tns:ArrayOfDTOFacImpuestosdetallefacturas" />
+          <s:element minOccurs="0" maxOccurs="1" name="lLotesDetalle" type="tns:ArrayOfDTOFacLotesDetallefacturas" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_dcop" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvpro_codi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvpro_nomb" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvuni_desc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvuni_quan" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_cant" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_valo" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_pdes" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_desc" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_stot" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvdet_piva" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvdet_viva" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvdet_tcod" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvpro_cean" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvdet_entr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvdet_nota" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDTOFacAdicionalesdetallefacturas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DTOFacAdicionalesdetallefacturas" nillable="true" type="tns:DTOFacAdicionalesdetallefacturas" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DTOFacAdicionalesdetallefacturas">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_atri" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvfac_vatr" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDTOFacImpuestosdetallefacturas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DTOFacImpuestosdetallefacturas" nillable="true" type="tns:DTOFacImpuestosdetallefacturas" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DTOFacImpuestosdetallefacturas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Nvimp_cdia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvimp_desc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvimp_oper" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvimp_base" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvimp_porc" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvimp_valo" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDTOFacLotesDetallefacturas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DTOFacLotesDetallefacturas" nillable="true" type="tns:DTOFacLotesDetallefacturas" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DTOFacLotesDetallefacturas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Nvlot_seri" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvlot_loid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvlot_expr" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvlot_nomb" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvlot_quan" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDTOFacImpuestosfacturas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DTOFacImpuestosfacturas" nillable="true" type="tns:DTOFacImpuestosfacturas" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DTOFacImpuestosfacturas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Nvimp_cdia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvimp_desc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvimp_oper" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvimp_base" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvimp_porc" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvimp_valo" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDTOFacAdicionalesfacturas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DTOFacAdicionalesfacturas" nillable="true" type="tns:DTOFacAdicionalesfacturas" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DTOFacAdicionalesfacturas">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_atri" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvfac_vatr" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDTOFacNotasfacturas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DTOFacNotasfacturas" nillable="true" type="tns:DTOFacNotasfacturas" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DTOFacNotasfacturas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Nvnot_desc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DTOFacMandatario">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="lMandante" type="tns:ArrayOfDTOFacMandante" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvemp_codi" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_cont" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegistrationName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxLevelCodeRegimen" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Regimen" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxLevelCodeTipoPersona" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoPersona" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegistrationName2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CitySubdivisionName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CityName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalZone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountrySubentity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressLine" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="JurisdictionRegionAddressID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountrySubentity2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Region" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDTOFacMandante">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DTOFacMandante" nillable="true" type="tns:DTOFacMandante" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DTOFacMandante">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Nvemp_codi" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_cont" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvman_cond" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartyIdentification" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CitySubdivisionName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CityName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalZone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountrySubentity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressLine" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegistrationName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxLevelCodeRegimen" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Regimen" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxLevelCodeTipoPersona" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoPersona" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorporateRegistrationTypeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telephone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ElectronicMail" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDTOFacBarcode">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DTOFacBarcode" nillable="true" type="tns:DTOFacBarcode" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DTOFacBarcode">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Nvbar_cons" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvbar_codi" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DTOFacTerminosEntrega">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Nvter_inco" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvter_entr" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DTOFacMediosPago">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Nvmed_banc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvmed_cuen" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvmed_name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DTOFacEntrega">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Nvent_terc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvent_dire" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvent_iden" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvent_ciud" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvent_pais" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvent_tele" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvent_pnet" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvent_pbru" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvent_puni" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDTOFacResumenFacturas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DTOFacResumenFacturas" nillable="true" type="tns:DTOFacResumenFacturas" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DTOFacResumenFacturas">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Nvres_cont" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvres_unim" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvres_cant" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DTOTasaCambio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Nvtas_sour" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvtas_targ" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvtas_calc" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvtas_fech" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDTOArancel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DTOArancel" nillable="true" type="tns:DTOArancel" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DTOArancel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Nvara_orig" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvara_dest" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvara_desc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvara_valo" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetFacFacturasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetFacFacturasResult" type="tns:DTOSalida" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DTOSalida">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cufe" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QrCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AuthHeader" type="tns:AuthHeader" />
+      <s:complexType name="AuthHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="GetEnvioDian">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="e" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="t" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEnvioDianResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEnvioDianResult" type="tns:DTOSalidaEnvio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DTOSalidaEnvio">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReporteRespuesta" type="tns:ArrayOfDTOFacFacturasenviadas" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDTOFacFacturasenviadas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DTOFacFacturasenviadas" nillable="true" type="tns:DTOFacFacturasenviadas" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DTOFacFacturasenviadas">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Nvemp_codi" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_cont" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvfac_orig" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvenv_id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvenv_xres" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvenv_resp" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvenv_come" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvenv_fech" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvtip_nomb" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvfac_nume" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvres_pref" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvenv_esta" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvenv_cfec" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvenv_obse" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvfac_cufe" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetEnvioCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="e" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="t" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEnvioClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEnvioClienteResult" type="tns:DTOSalidaEnvioCliente" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DTOSalidaEnvioCliente">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReporteRespuesta" type="tns:ArrayOfDTOFacFacturasenviadasadquiriente" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDTOFacFacturasenviadasadquiriente">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DTOFacFacturasenviadasadquiriente" nillable="true" type="tns:DTOFacFacturasenviadasadquiriente" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DTOFacFacturasenviadasadquiriente">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Nvemp_codi" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_cont" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvrec_cont" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvrec_codi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvfac_orig" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvrec_obse" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvenv_fech" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvenv_guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nving_fech" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvrec_fech" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvace_fech" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvvie_fech" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvenv_corr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvres_pref" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvfac_nume" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvfac_cufe" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvrec_desc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvenv_esta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvenv_estn" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_fech" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_venc" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_totp" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvcli_nomb" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvcli_docu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvmon_codi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvtip_docu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lTotales" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDocument">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="e" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="t" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="d" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DTODocumento">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Document" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDocumentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDocumentResult" type="tns:DTODocumento" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetFacNotifica">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dtoFacFacturasenviada" type="tns:DTOFacFacturasenviada" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DTOFacFacturasenviada">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Nvemp_codi" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvemp_nnit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_cont" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvfac_orig" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvenv_esta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvrec_codi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvrec_obse" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvenv_fech" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nving_fech" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvrec_fech" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvace_fech" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvvie_fech" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvenv_corr" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TSalida">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetFacNotificaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetFacNotificaResult" type="tns:TSalida" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetFacDocumentos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="documento" type="tns:Documento" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Documento">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Nvemp_nnit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nvfac_cont" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvfac_orig" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvdoc_tipo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvpla_codi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvdoc_arch" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nvusu_codi" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetFacDocumentosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetFacDocumentosResult" type="tns:TSalida" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResolucion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Nvemp_nnit" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Nvres_loca" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DTOSalidaResolucion">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lResoluciones" type="tns:ArrayOfResolucion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfResolucion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Resolucion" nillable="true" type="tns:Resolucion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Resolucion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroResolucion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaResolucion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prefijo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RangoInicial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RangoFinal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaVigenciaDesde" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaVigenciaHasta" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetResolucionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetResolucionResult" type="tns:DTOSalidaResolucion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetFacArchivoplano">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dtoArchivo" type="tns:DTOArchivo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DTOArchivo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="nvemp_nnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RutaArchivo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Archivo" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetFacArchivoplanoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetFacArchivoplanoResult" type="tns:DTOSalida" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SetFacFacturasSoapIn">
+    <wsdl:part name="parameters" element="tns:SetFacFacturas" />
+  </wsdl:message>
+  <wsdl:message name="SetFacFacturasSoapOut">
+    <wsdl:part name="parameters" element="tns:SetFacFacturasResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetFacFacturasAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetEnvioDianSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEnvioDian" />
+  </wsdl:message>
+  <wsdl:message name="GetEnvioDianSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEnvioDianResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEnvioDianAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetEnvioClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEnvioCliente" />
+  </wsdl:message>
+  <wsdl:message name="GetEnvioClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEnvioClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEnvioClienteAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDocument" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="SetFacNotificaSoapIn">
+    <wsdl:part name="parameters" element="tns:SetFacNotifica" />
+  </wsdl:message>
+  <wsdl:message name="SetFacNotificaSoapOut">
+    <wsdl:part name="parameters" element="tns:SetFacNotificaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetFacNotificaAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="SetFacDocumentosSoapIn">
+    <wsdl:part name="parameters" element="tns:SetFacDocumentos" />
+  </wsdl:message>
+  <wsdl:message name="SetFacDocumentosSoapOut">
+    <wsdl:part name="parameters" element="tns:SetFacDocumentosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetFacDocumentosAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetResolucionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetResolucion" />
+  </wsdl:message>
+  <wsdl:message name="GetResolucionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetResolucionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetResolucionAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="SetFacArchivoplanoSoapIn">
+    <wsdl:part name="parameters" element="tns:SetFacArchivoplano" />
+  </wsdl:message>
+  <wsdl:message name="SetFacArchivoplanoSoapOut">
+    <wsdl:part name="parameters" element="tns:SetFacArchivoplanoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetFacArchivoplanoAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:portType name="FacFacturasSoap">
+    <wsdl:operation name="SetFacFacturas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Recibe Facturas, Notas Credito y Notas Debito</wsdl:documentation>
+      <wsdl:input message="tns:SetFacFacturasSoapIn" />
+      <wsdl:output message="tns:SetFacFacturasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEnvioDian">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene respuesta del envio a la DIAN</wsdl:documentation>
+      <wsdl:input message="tns:GetEnvioDianSoapIn" />
+      <wsdl:output message="tns:GetEnvioDianSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEnvioCliente">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene respuesta del envio a la Adquiriente </wsdl:documentation>
+      <wsdl:input message="tns:GetEnvioClienteSoapIn" />
+      <wsdl:output message="tns:GetEnvioClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocument">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene documento XML o PDF </wsdl:documentation>
+      <wsdl:input message="tns:GetDocumentSoapIn" />
+      <wsdl:output message="tns:GetDocumentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetFacNotifica">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Recibe notificaicíon de aceptacion o rechazo de documentos electrónicos </wsdl:documentation>
+      <wsdl:input message="tns:SetFacNotificaSoapIn" />
+      <wsdl:output message="tns:SetFacNotificaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetFacDocumentos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Recibe documentos anexos a las facturas </wsdl:documentation>
+      <wsdl:input message="tns:SetFacDocumentosSoapIn" />
+      <wsdl:output message="tns:SetFacDocumentosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResolucion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta la resolucion y la numeración habilitada por al DIAN </wsdl:documentation>
+      <wsdl:input message="tns:GetResolucionSoapIn" />
+      <wsdl:output message="tns:GetResolucionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetFacArchivoplano">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Recibe plano facturación </wsdl:documentation>
+      <wsdl:input message="tns:SetFacArchivoplanoSoapIn" />
+      <wsdl:output message="tns:SetFacArchivoplanoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FacFacturasSoap" type="tns:FacFacturasSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetFacFacturas">
+      <soap:operation soapAction="http://Noova/SetFacFacturas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SetFacFacturasAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEnvioDian">
+      <soap:operation soapAction="http://Noova/GetEnvioDian" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetEnvioDianAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEnvioCliente">
+      <soap:operation soapAction="http://Noova/GetEnvioCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetEnvioClienteAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocument">
+      <soap:operation soapAction="http://Noova/GetDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDocumentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetFacNotifica">
+      <soap:operation soapAction="http://Noova/SetFacNotifica" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SetFacNotificaAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetFacDocumentos">
+      <soap:operation soapAction="http://Noova/SetFacDocumentos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SetFacDocumentosAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResolucion">
+      <soap:operation soapAction="http://Noova/GetResolucion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetResolucionAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetFacArchivoplano">
+      <soap:operation soapAction="http://Noova/SetFacArchivoplano" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SetFacArchivoplanoAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FacFacturasSoap12" type="tns:FacFacturasSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetFacFacturas">
+      <soap12:operation soapAction="http://Noova/SetFacFacturas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SetFacFacturasAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEnvioDian">
+      <soap12:operation soapAction="http://Noova/GetEnvioDian" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetEnvioDianAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEnvioCliente">
+      <soap12:operation soapAction="http://Noova/GetEnvioCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetEnvioClienteAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocument">
+      <soap12:operation soapAction="http://Noova/GetDocument" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetDocumentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetFacNotifica">
+      <soap12:operation soapAction="http://Noova/SetFacNotifica" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SetFacNotificaAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetFacDocumentos">
+      <soap12:operation soapAction="http://Noova/SetFacDocumentos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SetFacDocumentosAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResolucion">
+      <soap12:operation soapAction="http://Noova/GetResolucion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetResolucionAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetFacArchivoplano">
+      <soap12:operation soapAction="http://Noova/SetFacArchivoplano" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SetFacArchivoplanoAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FacFacturas">
+    <wsdl:port name="FacFacturasSoap" binding="tns:FacFacturasSoap">
+      <soap:address location="https://noovadevapi.azurewebsites.net/services/facfacturas.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FacFacturasSoap12" binding="tns:FacFacturasSoap12">
+      <soap12:address location="https://noovadevapi.azurewebsites.net/services/facfacturas.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

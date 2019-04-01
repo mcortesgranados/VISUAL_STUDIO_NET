@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dtoFacFacturasInput>
+  <lDetalle>
+    <DTOFacDetallefacturas>
+      <Nvfac_dcop>1</Nvfac_dcop>
+      <Nvpro_codi>asdasd</Nvpro_codi>
+      <Nvpro_nomb>asdasd</Nvpro_nomb>
+      <Nvuni_desc>asdasd</Nvuni_desc>
+      <Nvuni_quan>1</Nvuni_quan>
+      <Nvfac_cant>1</Nvfac_cant>
+      <Nvfac_valo>1</Nvfac_valo>
+      <Nvfac_pdes>1</Nvfac_pdes>
+      <Nvfac_desc>1</Nvfac_desc>
+      <Nvfac_stot>1</Nvfac_stot>
+      <Nvdet_piva>1</Nvdet_piva>
+      <Nvdet_viva>1</Nvdet_viva>
+      <Nvdet_nota>asdasdas</Nvdet_nota>
+    </DTOFacDetallefacturas>
+  </lDetalle>
+  <Nvfac_orig>Test</Nvfac_orig>
+  <Nvemp_nnit>830000</Nvemp_nnit>
+  <Nvfac_tipo>Test</Nvfac_tipo>
+  <Nvfac_fech>2019-06-22</Nvfac_fech>
+  <Nvfac_venc>2019-06-01</Nvfac_venc>
+  <Nvcli_cper>-102</Nvcli_cper>
+  <Nvcli_cdoc>-102</Nvcli_cdoc>
+  <Nvcli_docu>054654</Nvcli_docu>
+  <Nvcli_mail>correo@noova.com.co</Nvcli_mail>
+</dtoFacFacturasInput>
