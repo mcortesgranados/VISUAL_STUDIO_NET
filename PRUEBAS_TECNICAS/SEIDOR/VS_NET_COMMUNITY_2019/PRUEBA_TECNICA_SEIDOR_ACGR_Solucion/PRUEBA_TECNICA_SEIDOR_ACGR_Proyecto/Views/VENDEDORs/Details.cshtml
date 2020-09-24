@@ -1,0 +1,50 @@
+﻿@model PRUEBA_TECNICA_SEIDOR_ACGR_Proyecto.Models.VENDEDOR
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>VENDEDOR</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.APELLIDO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.APELLIDO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NUMERO_IDENTIFICACION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NUMERO_IDENTIFICACION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CODIGO_CIUDAD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CODIGO_CIUDAD)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CODIGO }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
